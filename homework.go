@@ -55,5 +55,13 @@ func Merge(intervals [][]int) [][]int {
 // 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数
 func TwoSum(nums []int, target int) []int {
 	// TODO: implement
+	for i, v := range nums {
+		var current = target - v
+		var idx = slices.Index(nums, current)
+		if idx >= 0 && idx != i {
+			return []int{i, idx}
+		}
+	}
+
 	return nil
 }
