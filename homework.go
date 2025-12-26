@@ -1,9 +1,5 @@
 package homework01
 
-import (
-	"slices"
-)
-
 // 1. 只出现一次的数字
 // 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
 func SingleNumber(nums []int) int {
@@ -58,14 +54,13 @@ func Merge(intervals [][]int) [][]int {
 // 8. 两数之和
 // 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数
 func TwoSum(nums []int, target int) []int {
-	// TODO: implement
-	for i, v := range nums {
-		var current = target - v
-		var idx = slices.Index(nums, current)
-		if idx >= 0 && idx != i {
-			return []int{i, idx}
+	for i, x := range nums {
+		for j := i+1; j<len(nums); j++ {
+			if x + nums[j] == target {
+				return []int{i, j}
+			}
 		}
 	}
 
-	return nil
+	return nil;
 }
